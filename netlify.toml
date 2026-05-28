@@ -1,0 +1,36 @@
+# ===========================================================
+# Configuração Netlify — Barbearia 09 de Setembro
+# ===========================================================
+# Projeto com site estático (pasta public) + backend
+# (Netlify Functions com Netlify Blobs como banco de dados).
+
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+  command = ""
+
+# Rota amigável: /admin abre a página admin
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+
+[[redirects]]
+  from = "/painel"
+  to = "/admin.html"
+  status = 200
+
+# Headers de segurança
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# HTML sempre fresco (atualizações chegam rápido)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

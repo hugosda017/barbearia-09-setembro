@@ -1,0 +1,11 @@
+{
+  "name": "barbearia-09-de-setembro",
+  "version": "1.0.0",
+  "description": "Site da Barbearia 09 de Setembro com agendamento online e painel administrativo",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0",
+    "web-push": "^3.6.7"
+  }
+}
